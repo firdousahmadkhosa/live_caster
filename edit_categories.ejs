@@ -1,0 +1,49 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+<h2 class="page-title">Edit a Categories</h1>
+	<a href="/admin_categories" class="btn btn-primary">Back to All Categories</a>
+	<br><br>
+	<form action="/admin_categories/update/<%= id %>" enctype="multipart/form-data" method="POST">
+
+		<div class="form-group">
+			<label for="">Title</label>
+			<input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+		</div>
+
+		<div class="form-group">
+			<label for="">Description</label>
+			<input type="text" class="form-control" name="description" value="<%= description %>"
+				placeholder="Description">
+		</div>
+
+		<div class="form-group">
+			<label for="">icon</label>
+			<input type="file" class="form-control" name="icon" id="img">
+			<img src="<%= typeof icon!='undefined'? icon: '' %>" id="imagePreview" alt="">
+
+		</div>
+
+		<input type="submit" class="btn btn-dark">
+	</form>
+
+	<script>
+
+
+		function readURL(input) {
+
+			for (var i = 0; i < input.files.length; i++) {
+				if (input.files && input.files[i]) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						$("#imagePreview").attr('src', e.target.result).width(100).height(100);
+					}
+					reader.readAsDataURL(input.files[i]);
+				}
+			}
+		}
+
+		$("#img").change(function () {
+			readURL(this);
+		});
+	</script>
+
+	<%- include('.\\' + '../_layouts/adminfooter'); %>

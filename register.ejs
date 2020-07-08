@@ -1,0 +1,93 @@
+<%- include('.\\' + '../_layouts/header'); %>
+
+
+
+
+<br>
+<h1><%=title%></h1>
+<br>
+<form  enctype="multipart/form-data"  action="/users/register"   method="POST">
+
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" value="<%= username %>" placeholder="Username">
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" value="<%= email%>" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" value="<%= password%>" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+        <label>Confirm_Password</label>
+        <input type="password" name="password2" class="form-control" value="<%= password2%>" placeholder="Confirm Password">
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="number" name="phone_number" class="form-control" value="<%= phone_number%>"
+            placeholder="phone_number">
+    </div>
+    <div class="form-group">
+        <label for="">User Categories</label>
+        <select name="user_category" class="form-control">
+            <option value="admin">admin</option>
+            <option value="Editor">Editor</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">Address</label>
+        <textarea name="address" class="form-control" cols="10" rows="05"
+            placeholder="Address"><%= address %></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label for="">Profile Picture</label>
+        <input type="file" class="form-control" name="picture" id="img">
+        <img src="#" id="imagePreview" alt="">
+    </div>
+
+    
+    <div class="form-group">
+        <label>Validation_code</label>
+        <input type="text" name="v_code" class="form-control" value="<%= v_code%>" placeholder="Validation_code">
+    </div>
+
+
+
+
+    <button type="submit" class="btn .btn-default" id="Buttons">Register</button>
+
+</form>
+<script>
+
+    function readURL(input) {
+
+        for (var i = 0; i < input.files.length; i++) {
+            if (input.files && input.files[i]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#imagePreview").attr('src', e.target.result).width(100).height(100);
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+    }
+
+    $("#img").change(function () {
+        readURL(this);
+    });
+</script>
+</div>
+
+
+
+
+
+<%- include('.\\' + '../_layouts/footer'); %>

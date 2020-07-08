@@ -1,0 +1,53 @@
+<%- include('../_layouts/adminheader'); %>
+<h2 class="page-title">Add News Categories</h1>
+<a href="/admin_categories" class="btn btn-primary">All News Categories</a>
+<br><br>
+<form  enctype="multipart/form-data"  action="/admin_categories/upload"   method="POST">
+
+
+<div class="form-group">
+		<label for="">Title</label>
+		<input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title" >
+</div>
+
+<div class="form-group">
+    <label for="">Description</label>
+    <textarea name="description"  class="form-control" cols="10" rows="05"  placeholder="Description" ><%= description %></textarea>
+</div>
+
+
+<div class="form-group">
+<label for="">icon</label>
+<input type="file" class="form-control" name="icon"  id="img">
+<img src="#" id="imagePreview"  alt="">
+</div>
+
+
+
+
+<input type="submit" class="btn btn-dark">
+</form>
+
+
+<script>
+
+	
+	function readURL(input){
+		
+		for(var i = 0; i<input.files.length; i++){
+		if(input.files && input.files[i]){
+			var reader =  new FileReader();
+			reader.onload = function(e){
+				$("#imagePreview").attr('src',e.target.result).width(100).height(100);
+			}
+reader.readAsDataURL(input.files[i]);
+}
+	}
+}
+
+	$("#img").change(function(){
+readURL(this);
+});
+</script>
+
+<%- include('../_layouts/adminfooter'); %>

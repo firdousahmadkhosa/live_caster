@@ -1,0 +1,57 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+<br>
+<h2 class="page-title">All Users</h1>
+    <br>
+
+    <% if(users!=null) { %>
+    <table class="table table-striped sorting">
+        <thead>
+            <tr class="Home">
+                <th>Picture</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>User Categories</th>
+                <th>Validation Status </th>
+                <th>Profile </th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% var id=0;  for(var i=0;i<users.length; i++){ %>
+            <tr id="id<%= users[i].id %>" class="<%= users[i].username %>">
+
+                <% if(username!=users[i].username){ var  id = users[i].id; %>
+                <!-- used for sorting id   -->
+                <td> <img src='data:image/jpeg/png;base64,<%=users[i].profile_picture%>' id="imagePreview" alt=""></td>
+                <td><%= users[i].username%></td>
+                <td><%= users[i].email%></td>
+                <td> <%= users[i].phone_number%></td>
+                <td><%= users[i].user_category%></td>
+                <%if(users[i].validation_status=='no'){ %>
+                <td><a href="/users/activate/<%=users[i].id%>" class="btn btn-info" id="Buttons">Activate</a></td>
+                <%}else{%>
+                <td>OK</td>
+                <%}%>
+                <td><a href="/admin_news/profile/<%=users[i].username %>">View</a></td>
+                <%if(users[i].user_category!='admin'){%>
+                <td><a class="confirmDeletion" href="/users/delete_user/<%= users[i].id%>">Delete</a></td>
+
+                <%}else{%>
+                <%if(users[i].user_category=='admin'&& users[i].validation_status=='no'){%>
+                <td><a class="confirmDeletion" href="/users/delete_user/<%= users[i].id%>">Delete</a></td> <%} else {%>
+                <td>----</td>
+                <%}%>
+                        <%}%>
+                <%}%>
+
+                <%}%>
+
+
+
+        </tbody>
+    </table>
+    <% } %>
+
+
+    <%- include('.\\' + '../_layouts/adminfooter'); %>

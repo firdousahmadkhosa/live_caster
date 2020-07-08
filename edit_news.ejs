@@ -1,8 +1,8 @@
 <%- include('../_layouts/adminheader'); %>
 <h2 class="page-title">Edit a News</h1>
-	<a href="/editor_news" class="btn btn-primary">Back to All News</a>
+	<a href="/admin_news" class="btn btn-primary">Back to All News</a>
 	<br><br>
-	<form enctype="multipart/form-data" action="/editor_news/update/<%= id %>" method="POST">
+	<form enctype="multipart/form-data" action="/admin_news/update/<%= id %>" method="POST">
 
 		<div class="form-group">
 			<label for="">Title</label>
@@ -26,7 +26,7 @@
 					<%if(all_categories[i].title==='About us' || all_categories[i].title==='Contact' ){%>
 						<%}else{%>
 				<option value="<%= all_categories[i].id %>"><%= all_categories[i].title %></option>
-				<%}} }%>
+				<%} } }%>
 			</select>
 		</div>
 		<% } %>
@@ -38,7 +38,7 @@
 			<img src="#" id="imagePreview" alt="">
 			<%for(var i=0; i<icon.length;i++) {%>
 			<img src='data:<%=icon[i].media_type%>;base64,<%=icon[i].media_data%>' id="imagePreview" alt="">
-			<li id="delete_icon"><a href="/editor_news/delete_single_icon/<%= icon[i].media_id %>/<%= id %>">delete</a></li>
+			<li id="delete_icon"><a href="/admin_news/delete_single_icon/<%= icon[i].media_id %>/<%= id %>">delete</a></li>
 			<%}%>
 		</div>
 

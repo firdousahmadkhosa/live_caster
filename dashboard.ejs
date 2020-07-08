@@ -1,7 +1,58 @@
 <%- include('.\\' + '../_layouts/adminheader'); %>
-<h2 class="page-title">Welcome <%=username%></h1>
-
+<h2 class="page-title">Welcome <%=username%> </h1>
 <br><br>
-   
+<div class="row" style="margin-left: 75px;">
+<div class="card" style="width: 20rem; margin: 10px;">
+  <div class="card-body">
+    <h4 class="card-title">Total Categories  <%=categories%></h4>
 
+    <p class="card-text"> </p>
+
+  </div>
+
+</div>
+
+<div class="card" style="width: 20rem;  margin: 10px;;">
+  <div class="card-body">
+    <h4 class="card-title">Total News  <%=news%></h4>
+    
+    <p class="card-text"> </p>
+   
+  </div>
+</div>
+
+
+<div class="card" style="width: 20rem; margin: 10px;;">
+  <div class="card-body">
+    <h4 class="card-title">Registered Users  <%=valid_users%></h4>
+    
+    <p class="card-text"> </p>
+   
+  </div>
+</div>
+
+<div class="card" style="width: 20rem; margin: 10px;;">
+  <div class="card-body">
+    <h4 class="card-title">Requested Users  <%=not_valid_users%></h4>
+
+    <p class="card-text"> </p>
+
+  </div>
+</div>
+
+</div>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br><br>
+
+<br>
+<br>
+<br>
 <%- include('.\\' + '../_layouts/adminfooter'); %>

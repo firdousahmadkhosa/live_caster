@@ -1,0 +1,35 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+<h2 class="page-title">Categories</h1>
+<a href="/admin_categories/add_categories" class="btn btn-primary">Add a Category</a>
+<br><br>
+<% if(object!=null) { %>
+
+<table class="table table-striped">
+  <thead>
+<tr>
+    <th>Title</th>
+    <th> Categories Icon</th>
+    <th>Edit </th>
+    <th>Delete</th>
+</tr>
+  </thead>
+    <tbody>
+<% object.forEach(function(cat){ %>
+<tr id="id_<%= cat.id %>">     <!-- used for sorting id   -->
+
+<td><%= cat.title%></td>
+<%var a = cat.icon.toString(); if(a!=null){%>
+<td><img src="data:image/jpeg/png;base64,<%= typeof cat.icon!='undefined'? cat.icon: '' %>" id="imagePreview" alt=""></td>
+<%}else{%><td></td><%}%>
+
+  <td><a href="/admin_categories/edit_categories/<%= cat.id %>">Edit</a></td>
+<td><a class="confirmDeletion" href="/admin_categories/delete_categories/<%= cat.id%>">Delete</a></td>
+</tr>
+<% }); %>
+  </tbody>
+</table>
+<% } %>
+
+
+
+<%- include('.\\' + '../_layouts/adminfooter'); %>

@@ -1,6 +1,6 @@
 <%- include('.\\' + '../_layouts/adminheader'); %>
 <h2 class="page-title">All News</h1>
-  <a href="/editor_news/add_news" class="btn btn-primary">Add a News</a>
+  <a href="/admin_news/add_news" class="btn btn-primary">Add a News</a>
   <br><br>
   <% if(news.toString()!='') { %>
   <table class="table table-striped sorting">
@@ -26,8 +26,8 @@
           <%}%>
         </td>
           <td><%= news[i].username%></td>
-        <td><a href="/editor_news/edit_news/<%= news[i].id %>">Edit</a></td>
-        <td><a class="confirmDeletion" href="/editor_news/delete_news/<%= news[i].id%>">Delete</a></td>
+        <td><a href="/admin_news/edit_news/<%= news[i].id %>">Edit</a></td>
+        <td><a class="confirmDeletion" href="/admin_news/delete_news/<%= news[i].id%>">Delete</a></td>
         <%}%>
      
         <%}%>

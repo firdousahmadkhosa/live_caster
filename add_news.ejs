@@ -1,8 +1,8 @@
 <%- include('../_layouts/adminheader'); %>
 <h2 class="page-title">Add a News</h1>
-	<a href="/editor_news" class="btn btn-primary">Back to All News</a>
+	<a href="/admin_news" class="btn btn-primary">Back to All News</a>
 	<br><br>
-	<form enctype="multipart/form-data" action="/editor_news/upload" method="POST">
+	<form enctype="multipart/form-data" action="/admin_news/upload" method="POST">
 
 		<div class="form-group">
 			<label for="">Title</label>
@@ -21,9 +21,10 @@
 			<select name="categories" class="form-control">
 				<% categories.forEach(function(category){ %>
 					<%if(category.title==='About us' || category.title==='Contact' ){%>
-						<%}else{%>
+					<%}else{%>	
 				<option value="<%= category.id %>"><%= category.title %></option>
-				<%} }); %>
+				<%}%>
+				<% }); %>
 			</select>
 		</div>
 		<% } %>

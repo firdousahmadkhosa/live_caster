@@ -1,0 +1,56 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+<h2 class="page-title">All News</h1>
+  <a href="/editor_news/add_news" class="btn btn-primary">Add a News</a>
+  <br><br>
+  <% if(news.toString()!='') { %>
+  <table class="table table-striped sorting">
+    <thead>
+      <tr class="Home">
+        <th>HeadLine</th>
+        <th>Categories</th>
+        <th>Heading Image</th>
+        <th>Submitted By</th>
+        <th>Edit </th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% var id=0;  for(var i=0;i<news.length; i++){ %>
+      <tr id="id<%= news[i].id %>" class="<%= news[i].news_title %>">
+        <% if(id!=news[i].id){   id = news[i].id; %>
+        <!-- used for sorting id   -->
+        <td><%= news[i].news_title%></td>
+        <td><%= news[i].title%></td>
+        <td> <%if(news[i].media_data!=null){%>
+          <img src='data:<%=news[i].media_type%>;base64,<%=news[i].media_data%>' id="imagePreview"  alt="">
+          <%}%>
+        </td>
+          <td><%= news[i].username%></td>
+        <td><a href="/editor_news/edit_news/<%= news[i].id %>">Edit</a></td>
+        <td><a class="confirmDeletion" href="/editor_news/delete_news/<%= news[i].id%>">Delete</a></td>
+        <%}%>
+     
+        <%}%>
+
+
+
+    </tbody>
+  </table>
+  <% } %>
+
+
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+
+  <script>
+    $('tbody').sortable({
+      placeholder: "ui-state-hightlight",
+      update: function () {
+        var ids = $('tbody').sortable('serialize');
+        var url = '/adminnews/reordernews';
+        $.post(url, ids);
+      }
+    });
+  </script
+
+<%- include('.\\' + '../_layouts/adminfooter'); %>

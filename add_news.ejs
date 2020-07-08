@@ -1,0 +1,70 @@
+<%- include('../_layouts/adminheader'); %>
+<h2 class="page-title">Add a News</h1>
+	<a href="/editor_news" class="btn btn-primary">Back to All News</a>
+	<br><br>
+	<form enctype="multipart/form-data" action="/editor_news/upload" method="POST">
+
+		<div class="form-group">
+			<label for="">Title</label>
+			<input type="text" class="form-control" name="headline" value="<%= headline %>" placeholder="Title">
+		</div>
+
+		<div class="form-group">
+			<label for="">Sub Title</label>
+			<input type="text" class="form-control" name="subheadline" value="<%= subheadline %>" placeholder="SubTitle">
+		</div>
+
+		<% if(categories!=null) { %>
+
+		<div class="form-group">
+			<label for="">categories</label>
+			<select name="categories" class="form-control">
+				<% categories.forEach(function(category){ %>
+					<%if(category.title==='About us' || category.title==='Contact' ){%>
+						<%}else{%>
+				<option value="<%= category.id %>"><%= category.title %></option>
+				<%} }); %>
+			</select>
+		</div>
+		<% } %>
+
+
+		<div class="form-group">
+			<label for="">Files</label>
+			<input type="file" class="form-control" name="myFiles" id="img" multiple>
+			<img src="#" id="imagePreview" alt="">
+		</div>
+
+
+		<div class="form-group">
+			<label for="">Description</label>
+			<textarea name="description"  class="form-control" cols="10" rows="05"  placeholder="Description" ><%= description %></textarea>
+		</div>
+
+
+		<input type="submit" class="btn btn-dark">
+	</form>
+
+
+	<script>
+
+
+		function readURL(input) {
+			
+			for (var i = 0; i < input.files.length; i++) {
+				if (input.files && input.files[i]) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						$("#imagePreview").attr('src', e.target.result).width(100).height(100);
+					}
+					reader.readAsDataURL(input.files[i]);
+				}
+			}
+		}
+
+		$("#img").change(function () {
+			readURL(this);
+		});
+	</script>
+
+	<%- include('../_layouts/adminfooter'); %>

@@ -1,0 +1,127 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+
+
+<div class="container-fluid user-profile">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="well well-sm">
+        <div class="user-profile-card">
+          <div class="user-profile-header">
+          </div>
+          <div class="user-profile-avatar text-center">
+            <img src="<%= typeof p_picture!='undefined'?
+              p_picture: '' %>" alt="">
+          </div>
+          <div class="text-center">
+            <h4><%=Username%></h4>
+            <small></small>
+            <br />
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>User Name</small>
+                  <%=Username%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Phone Number</small>
+                  <%=phone_number%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Validation Code</small>
+                  <%=v_code%>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Password</small>
+                  <%=password%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>User Category</small>
+                  <%=user_category%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Register Date</small>
+                  <%=register_date%>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Email</small>
+                  <%=email%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Address</small>
+                  <%=address%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Login Date</small>
+                  <%=login_date%>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Total Posts</small>
+                  <%=total_posts%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small>Validation Status</small>
+                  <%=v_status%>
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="panel-footer">
+                  <small></small>
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <%if(Username==username){%>
+          <div><a href="/admin_news/my_account_edit/<%=id%>" id="Buttons" class="btn btn-primary"><i></i> Edit My
+              Profile</a>
+            <a href="/users/delete_user/<%=id%>" class="btn btn-info" id="Buttons">Delete My Account</a></div>
+          <%}%>
+            
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+<%- include('.\\' + '../_layouts/adminfooter'); %>

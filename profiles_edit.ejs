@@ -1,0 +1,96 @@
+<%- include('.\\' + '../_layouts/adminheader'); %>
+<br>
+<h1>Edit my profile</h1>
+<br>
+<form enctype="multipart/form-data" action="/admin_news/profile_edit/<%=id%>"  method="POST">
+
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" value="<%= username %>" placeholder="Username" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" value="<%= email%>" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" value="<%= password%>" placeholder="Password"
+            id="myInput">
+        <br>
+        <input type="checkbox" onclick="myFunction()">Show Password
+    </div>
+
+    <div class="form-group">
+        <label for="">Profile Picture</label>
+
+        <input type="file" class="form-control" name="p_picture" id="img"  value="Choose anOther profile picture">
+        <img src="<%=p_picture%>" id="imagePreview" class="picture" alt="">
+
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="number" name="phone_number" class="form-control" value="<%= phone_number%>"
+            placeholder="phone_number">
+    </div>
+
+    <div class="form-group">
+        <label>User Category</label>
+        <input type="text" name="user_category" class="form-control" value="<%= user_category%>" placeholder="" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="">Address</label>
+        <textarea name="address" class="form-control" cols="10" rows="05"
+            placeholder="Address"><%= address %></textarea>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <label>Validation_code</label>
+        <input type="text" name="v_code" class="form-control" value="<%= v_code%>" placeholder="Validation_code">
+    </div>
+
+
+
+
+    <button type="submit" class="btn .btn-default" id="Buttons">Edit</button>
+
+</form>
+<script>
+
+    function readURL(input) {
+        var i = 0;
+
+        if (input.files && input.files[i]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#imagePreview").attr('src', e.target.result).width(100).height(100);
+            }
+
+            reader.readAsDataURL(input.files[i]);
+
+
+        }
+
+
+    }
+
+    $("#img").change(function () {
+
+        readURL(this);
+
+
+    });
+</script>
+</div>
+
+
+
+
+<%- include('.\\' + '../_layouts/adminfooter'); %>

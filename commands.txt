@@ -1,0 +1,31 @@
+npm init
+npm install --save express ejs
+npm install  -g nodemon
+npm i mysql
+npm install body-parser
+npm install express-session
+npm install express-validator@5.3.1 --save-exact
+npm i express-messages
+npm i connect-flash
+npm i express-fileupload
+npm install --save passport passport-local bcryptjs
+npm i fb
+
+npm init
+npm install express
+npm install --save express ejs
+npm install  -g nodemon
+nodemon app.js
+npm i mysql
+npm install --save mongoose
+npm install body-parser
+npm install --save express-session
+npm install express-validator@5.3.1 --save-exact
+npm install connect-flash
+npm i express-fileupload
+npm install --save passport passport-local bcryptjs
+npm i external-ip
+
+
+
+

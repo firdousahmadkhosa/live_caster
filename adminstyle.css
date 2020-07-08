@@ -1,0 +1,63 @@
+.sorting tr:not(.home){
+cursor:pointer;
+}
+li{ 
+	list-style-type: none;
+	margin-left: 0px;
+  }
+.ui-state-hightlight{
+	border: 1px dashed #ccc;
+}
+div {
+    display: block;
+}
+#myChart{
+	max-width: 900px;
+}
+#imagePreview{
+width: 100px;
+height: 100px;
+margin-top: 10px;
+}
+#GalleyImages{
+	display: inline-block;
+	list-style: none;
+
+}
+#Buttons{
+	margin-bottom: 10px; 
+	border-color: black;
+}
+
+.user-profile .user-profile-card {
+	position: relative;
+	padding-top: 0;
+	overflow: hidden;
+  }
+  
+  .user-profile-card .user-profile-header {
+	background-size: cover;
+	height: 135px;
+  }
+  
+  .user-profile-card .user-profile-avatar {
+	position: relative;
+	top: -130px;
+	margin-bottom: -130px;
+	padding: 0 15px;
+  }
+  
+  .user-profile-card .user-profile-avatar img {
+	width: 250px;
+	height: 250px;
+	-webkit-border-radius: 10%;
+	-moz-border-radius: 10%;
+	border-radius: 10%;
+	border: 2px solid rgba(255,255,255,0.5);
+  }
+  
+  .user-profile small {
+	display: block;
+	line-height: 1.428571429;
+	color: #999;
+  }

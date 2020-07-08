@@ -1,0 +1,99 @@
+<%- include('.\\' + '../_layouts/header'); %>
+
+<%- include('.\\' + '../frentEnd/bracking_news'); %>
+
+
+    <!-- ##### About Area Start ##### -->
+    <section class="about-area">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>A young and professional team</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <p>Journalism is a broad career with many opportunities. Within different areas of media (television, radio, newspapers, magazines, etc.), there are specialized tasks for journalists. Depending on the size of an organization, a journalist may work one or many of these tasks:</p>
+                    <p>Reporters -are directly involved in the gathering of information. They conduct interviews, find sources, and pull together all the information needed to write a well-rounded news story. Reporters also present the information in a written or spoken form in news stories, documentaries, or feature articles. General reporters cover all kinds of news stories, but some may specialize in certain areas such as sports, politics, or lifestyle. Some reporters may work on staff for large news organizations, or as freelance writers, writing stories for whomever is paying them.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p>Sub-editors -take stories written by reporters and put them into a form that suits the special needs of their particular newspaper, magazine, or website. Sub-editors do not gather the information themselves but rather they concentrate on how existing stories can be better tailored to match a specific audience.</p>
+                    <p>Photojournalists -use photography as a way of reporting the news. They may cover events with a reporter, taking photographs to represent a written story or attend news events on their own, doing both jobs. A photojournalist must carry photographic equipment with them, and must make decisions instantly in order to capture important events at the time they take place. At times, they may be exposed to physical danger, crowds, or harsh weather.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-80">
+                <!-- Single Cool Fact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact d-flex align-items-center">
+                        <h3><span class="counter"><%=total_news%></span></h3>
+                        <div class="cf-text">
+                            <h6>News Article</h6>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Fact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact d-flex align-items-center">
+                        <h3><span class="counter"><%=users.length%></span></h3>
+                        <div class="cf-text">
+                            <h6>Reporters</h6>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Fact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact d-flex align-items-center">
+                        <h3><span class="counter">0</span></h3>
+                        <div class="cf-text">
+                            <h6>Awards Won</h6>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Fact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact d-flex align-items-center">
+                        <h3><span class="counter"><%var dt=new Date(); var year = dt.getFullYear()-2020%><%=year%></span></h3>
+                        <div class="cf-text">
+                            <h6>Years Old</h6>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+        <!-- ##### Team Area Start ##### -->
+        <section class="newspaper-team mb-30">
+            <div class="container">
+                <div class="row">
+    <%if(users.length!=0){%>
+        <%for(var i=0; i<users.length; i++){%>
+                    <!-- Single Team Member -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-team-member">
+                            <img src="data:image/jpeg;base64,<%=users[i].profile_picture%>" style="width: 330px; height: 327px;" alt="">
+                            <div class="team-info">
+                                <h5><%=users[i].username%></h5>
+                                <h6>Senior Editor</h6>
+                            </div>
+                        </div>
+                    </div>
+    
+            <%}}%>  
+                </div>
+            </div>
+        </section>
+        <!-- ##### Team Area End ##### -->
+    
+
+<%- include('.\\' + '../_layouts/footer'); %>

@@ -1,0 +1,57 @@
+<%- include('.\\' + '../_layouts/header'); %>
+
+<%- include('.\\' + '../frentEnd/bracking_news'); %>
+<%if(categories_news.length!=0){ %>
+    <%for(var i=0; i<categories_news.length; i++){ %>
+    <!-- ##### Editorial Post Area Start ##### -->
+    <div class="editors-pick-post-area section-padding-30-30">
+        <div class="container">
+            <div class="row">
+                <!-- Editors Pick -->
+                <div class="col-12 col-md-7 col-lg-12">
+                    <div class="section-heading">
+                        <h6><%=categories_news[i]%></h6>
+                    </div>
+                    <div class="row">
+                        <% var id=-0; var temp =0; for(var j=0;j<news.length;j++){ %>
+                            <%if( id!=news[j].id){   id = news[j].id%>
+                        <%if(categories_news[i]==news[j].title){  %>
+                            
+                        <%  if(temp<=7 ){%>
+                        <!-- Single Post -->
+                        <div class="col-12 col-lg-3">
+                            <div class="single-blog-post">
+                                <div class="post-thumb">
+                                    <a href="/news/<%=news[j].id%>"><img src="data:<%=news[j].media_type%>;base64,<%= typeof news[j].media_data!='undefined'?
+                                    news[j].media_data: '' %>" style="max-width:250px; height:250px;" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="/news/<%=news[j].id%>" class="post-title">
+                                        <h6><%=news[j].news_title%></h6>
+                                    </a>
+                                    <div class="post-meta"><%var dt =new Date(news[j].date_time); %>
+                                        <%var day = ("0" + dt.getDate()).slice(-2);%>
+                                        <%var mnth_name=dt.toLocaleString('default', { month: 'long' });%>
+                                        <div class="post-date"><p ><%=mnth_name%> <%=day%>,
+                                                <%=dt.getFullYear()%></p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%} else{ temp =0; continue;}%>
+                                    <% temp+=1;}%>
+                        <%  }%>
+                <%  }%>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Editorial Post Area End ##### -->
+    <%}%>
+<%}%>
+<%- include('.\\' + '../_layouts/footer'); %>
